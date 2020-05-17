@@ -1,0 +1,27 @@
+---
+layout: master.njk
+---
+
+
+<div class="breadcrumbs">
+
+	{% set crumbs = collections.all | eleventyNavigationBreadcrumb(title) %}
+
+	{% macro renderCrumb(entry) -%}
+		<li class="breadcrumbs__item breadcrumbs__item--parent">
+		  <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+		</li>
+	{%- endmacro %}
+
+	<ul class="breadcrumbs__list">
+		{%- for entry in crumbs %}{{ renderCrumb(entry) }}{%- endfor -%}
+		<li class="breadcrumbs__item breadcrumbs__item--current">{{ title }}</li>
+	</ul>
+
+</div>
+
+
+
+<div class="article">
+	{{ content | safe }}
+</div>

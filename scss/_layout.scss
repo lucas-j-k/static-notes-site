@@ -1,0 +1,46 @@
+/*
+*
+*	Layout Styles
+*
+*/
+
+
+.layout {
+
+	position: relative;
+
+	@include tablet {
+		display: flex;
+	}
+
+
+	&__col {
+		min-height: 100vh;
+
+		&--left {
+			background-color: map-get($color, "black");
+			color: map-get($color, 'white');
+
+			@include tablet {
+				width: 25%;
+				border-right: 2px solid map-get($color, 'secondary_base');
+			}
+		}
+
+		&--right {
+			width: 90%;
+			margin: 0 auto;
+			padding: map-get($space, "md");
+
+			@inlude tablet {
+				width: 75%;
+				margin: auto;
+			}
+		}
+	}
+
+	&__content {
+		width: 95%;
+		margin: 0 auto;
+	}
+}

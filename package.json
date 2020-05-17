@@ -1,0 +1,19 @@
+{
+  "name": "eleventy-docs-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --style=compressed scss/index.scss css/index.css",
+    "watch:eleventy": "eleventy --serve",
+    "watch:sass": "npm run sass -- --watch",
+    "build": "npm run sass && eleventy"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-navigation": "^0.1.5",
+    "sass": "^1.26.5"
+  }
+}

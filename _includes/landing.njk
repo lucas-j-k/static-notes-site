@@ -1,0 +1,16 @@
+---
+layout: master.njk
+---
+
+<div class="sectionMenu">
+	<h1 class="sectionMenu__heading">Contents - {{ title | safe }}</h1>
+	<div>
+		{% set navPages = collections.all | eleventyNavigation(title) %}
+		{{ navPages | eleventyNavigationToHtml({
+			anchorClass: "sectionMenu__link"
+		}) | safe }}
+		{{ content | safe }}
+	</div>
+</div>
+
+

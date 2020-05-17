@@ -1,0 +1,58 @@
+/*
+*
+*	Content Styles
+*
+*/
+
+
+.article {
+	max-width: 1024px;
+
+	img {
+		max-width: 100%;
+		display: block;
+		margin: map-get($space, "sm") 0;
+	}
+
+	a {
+		color: map-get($color, "secondary_base");
+		font-weight: bold;
+	}
+
+	blockquote {
+		background-color: map-get($color, "primary_light");
+		font-style: italic;
+		margin: map-get($space, "sm") 0;
+		padding: map-get($space, "xs");
+	}
+
+	pre {
+		background-color: map-get($color, "primary_dark");
+		color: map-get($color, "white");
+		padding: map-get($space, "sm") 0;
+		font-size: 0.85rem;
+	}
+	table {
+		border: 1px solid map-get($color, "primary_dark");
+		border-collapse: collapse;
+	}
+
+	thead {
+		th {
+			background-color: map-get($color, "primary_dark");
+			color: map-get($color, "primary_light");
+		}
+	}
+
+	tr:nth-child(even) {
+		background-color: map-get($color, "primary_light");
+	}
+
+	td, th {
+		padding: map-get($space, "sm");
+	}
+
+	td {
+		border: 1px solid map-get($color, "primary_base");
+	}
+}

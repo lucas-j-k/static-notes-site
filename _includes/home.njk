@@ -1,0 +1,19 @@
+---
+layout: master.njk
+---
+
+<main>
+	<div>
+		{{ content | safe }}
+	</div>
+	<div>
+		<ul>
+			{%- for section in collections.section -%}
+			  <li>
+			  	<a href="{{section.url}}">{{ section.data.title }}</a>
+			  </li>
+			{%- endfor -%}
+		</ul>
+		
+	</div>
+</main>

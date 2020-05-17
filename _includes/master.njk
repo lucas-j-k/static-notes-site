@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{{global.siteTitle | safe}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="/css/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="layout">
+
+		<div class="menuBar menuBar--mobile">
+			<p class="menuBar__heading">{{global.siteTitle}}</p>
+			<button class="menuBar__button">
+				Menu
+			</button>
+		</div>
+
+		<div class="layout__col layout__col--left mobileMenu mobileMenu--hidden" id="mobile_menu">
+			<nav class="nav">
+				<div class="menuBar">
+					<p class="menuBar__heading">{{global.siteTitle | safe}}</p>
+					<button class="menuBar__button">
+						Menu
+					</button>
+				</div>
+
+				{% set navPages = collections.all | eleventyNavigation %}
+
+				{% macro renderNavListItem(entry) -%}
+					<li
+						{% if (entry.children.length) and (not entry.parent) %} 
+					  		class="nav__item nav__item--parent"
+					  	{% else %}
+					  		class="nav__item"
+					  	{% endif %}
+					>
+					  <a
+					  	href="{{ entry.url | url }}" 
+					  	{% if entry.url == page.url %} 
+					  		class="nav__link nav__link--current"
+					  	{% else %}
+					  		class="nav__link"
+					  	{% endif %}
+					  >
+						  	{{ entry.title }}
+					  </a>
+					{%- if entry.children.length -%}
+					  <ul>
+					    {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+					  </ul>
+					{%- endif -%}
+					</li>
+				{%- endmacro %}
+
+				<ul class="nav__list">
+					{%- for entry in navPages %}
+						{{ renderNavListItem(entry) }}
+					{%- endfor -%}
+				</ul>
+			</nav>
+		</div>
+	
+
+		<main class='layout__col layout__col--right'>
+			<div class="layout__content">
+				{{ content | safe }}
+			</div>
+		</main>
+
+	</div>
+
+
+  <!-- Scripts -->
+  <script src="/js/index.js"></script>
+
+</body>
+
+</html>
