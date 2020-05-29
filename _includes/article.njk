@@ -21,7 +21,14 @@ layout: master.njk
 </div>
 
 
+<div class="contents" id="contents">
+	<p class="contents__title" id="contentsTitle"></p>
+	<ul class="contents__list" id="contentsList"></ul>
+</div>
 
-<div class="article">
+<div class="article" id="article">
 	{{ content | safe }}
 </div>
+
+<!-- Import article scripts -->
+<script src="/js/article.js"></script>

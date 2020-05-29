@@ -4,18 +4,18 @@
 *
 */
 
-const elements = {
+const indexElements = {
 	menuButtons: document.querySelectorAll('.menuBar__button'),
 	menu: document.querySelector('#mobile_menu'),
 }
 
 
-const toggleMenu = () => elements.menu.classList.toggle('mobileMenu--hidden');
+const toggleMenu = () => indexElements.menu.classList.toggle('mobileMenu--hidden');
 
-elements.menuButtons.forEach(btn => btn.addEventListener('click', toggleMenu));
+indexElements.menuButtons.forEach(btn => btn.addEventListener('click', toggleMenu));
 
 window.addEventListener('resize', () => {
 	if(window.innerWidth <= 768) {
-		elements.menu.classList.add('mobileMenu--hidden');
+		indexElements.menu.classList.add('mobileMenu--hidden');
 	}
 });

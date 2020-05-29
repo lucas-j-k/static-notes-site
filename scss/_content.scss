@@ -56,3 +56,40 @@
 		border: 1px solid map-get($color, "primary_base");
 	}
 }
+
+
+
+/*Contents List*/
+.contents {
+
+	margin-top: map-get($space, "xl");
+
+	&__title {
+		font-weight: bold;
+	}
+
+	&__list {
+		background-color: map-get($color, "primary_light");
+		padding: map-get($space, "sm");
+	}
+
+	&__list-item {
+		margin-bottom: map-get($space, "sm");
+
+		a {
+			color: map-get($color, "primary_dark");	
+		}
+
+		&--h3 {
+			padding-left: map-get($space, "md");
+		}
+
+		&--h4 {
+			padding-left: map-get($space, "lg");
+		}
+
+		&--h5 {
+			padding-left: map-get($space, "xl");
+		}
+	}
+}
